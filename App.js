@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Header from './Header';
+import PokemonList from './PokemonList';
 
 const POKEMON_API_ENDPOINT = `https://pokeapi.co/api/v2/`;
 const FIRST_100_QUERY = `pokemon?limit=100`;
@@ -22,7 +23,7 @@ export default function App() {
     <View style={styles.container}>
       <Header/>
       <View style={styles.body}>
-        <Text style={styles.text}>Hello World!</Text>
+        <PokemonList list={pokemonList}/>
       </View>
     </View>
   );
