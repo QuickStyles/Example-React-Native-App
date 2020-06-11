@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Header from './Header';
 import PokemonList from './PokemonList';
+import PokemonDetails from './PokemonDetails';
 
 const POKEMON_API_ENDPOINT = `https://pokeapi.co/api/v2/`;
 const FIRST_100_QUERY = `pokemon?limit=100`;
@@ -36,9 +37,13 @@ export default function App() {
         >
           <Stack.Screen
             name="Pokemon List"
-            children={() => {
-              return <PokemonList list={pokemonList}/>
+            children={({navigation}) => {
+              return <PokemonList list={pokemonList} navigation={navigation}/>
             }}
+          />
+          <Stack.Screen
+            name="Pokemon Details"
+            component={PokemonDetails}
           />
         </Stack.Navigator>
       </View>

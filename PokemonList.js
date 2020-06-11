@@ -1,7 +1,9 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableHighlight } from 'react-native'
 
-function PokemonList({ list }) {
+function PokemonList({ list, navigation }) {
+  console.log('logging navigation prop')
+  console.log(navigation);
   return(
     <ScrollView>
       {
@@ -11,7 +13,7 @@ function PokemonList({ list }) {
               underlayColor="lightblue"
               activeOpacity={0.3}
               key={i}
-              onPress={(event) => { console.log(event)}}>
+              onPress={(event) => navigation.navigate('Pokemon Details')}>
               <View style={styles.pokemon}>
                 <Text>{pokemon.name}</Text>
               </View>
